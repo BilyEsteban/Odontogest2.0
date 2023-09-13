@@ -1,0 +1,494 @@
+﻿@model IEnumerable<Odontogest.Models.Store>
+@{
+    ViewData["Title"] = "List Store";
+    Layout = null;
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/plugins/images/favicon.png">
+    <title>GestShop</title>
+    <!-- ===== Bootstrap CSS ===== -->
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- ===== Plugin CSS ===== -->
+    <link href="~/plugins/components/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="~/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <link href="~/plugins/components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/plugins/components/dropify/dist/css/dropify.min.css" rel="stylesheet">
+    <!-- ===== Animation CSS ===== -->
+    <link href="~/css/animate.css" rel="stylesheet">
+    <!-- ===== Custom CSS ===== -->
+    <link href="~/css/style.css" rel="stylesheet">
+    <!-- ===== Color CSS ===== -->
+    <link href="~/css/colors/blue.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="mini-sidebar">
+    <!-- ===== Main-Wrapper ===== -->
+    <div id="wrapper">
+        <div class="preloader">
+            <div class="cssload-speeding-wheel"></div>
+        </div>
+        <!-- ===== Top-Navigation ===== -->
+        <nav>
+            <div class="navbar-header">
+                <a class=" " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="top-left-part">
+                    <a class="logo" href="index.html">
+                        <b>
+                            <img src="~/plugins/images/logo.png" alt="home" />
+                        </b>
+                        <span>
+                            <img src="~/plugins/images/logo-text.png" alt="homepage" class="dark-logo" />
+                        </span>
+                    </a>
+                </div>
+                <ul class="nav navbar-top-links navbar-left hidden-xs">
+                    <li>
+                        <a href="javascript:void(0)" class="sidebartoggler font-20 waves-effect waves-light"><i class="icon-arrow-left-circle"></i></a>
+                    </li>
+                    <li>
+                        <form role="search" class="app-search hidden-xs">
+                            <i class="icon-magnifier"></i>
+                            <input type="text" placeholder="Buscar..." class="form-control">
+                        </form>
+                    </li>
+                </ul>
+                <ul class="navbar-top-links navbar-right pull-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle waves-effect waves-light font-20" data-toggle="dropdown" href="javascript:void(0);">
+                            <i class="icon-speech"></i>
+                            <span class="badge badge-xs badge-danger">6</span>
+                        </a>
+                        <ul class="dropdown-menu mailbox animated bounceInDown">
+                            <li>
+                                <div class="drop-title">Tienes 4 mensajes nuevos</div>
+                            </li>
+                            <li>
+                                <div class="message-center">
+                                    <a href="javascript:void(0);">
+                                        <div class="user-img">
+                                            <img src="~/plugins/images/users/1.jpg" alt="user" class="img-circle">
+                                            <span class="profile-status online pull-right"></span>
+                                        </div>
+                                        <div class="mail-contnet">
+                                            <h5>Pavan kumar</h5>
+                                            <span class="mail-desc">Just see the my admin!</span>
+                                            <span class="time">9:30 AM</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0);">
+                                        <div class="user-img">
+                                            <img src="~/plugins/images/users/2.jpg" alt="user" class="img-circle">
+                                            <span class="profile-status busy pull-right"></span>
+                                        </div>
+                                        <div class="mail-contnet">
+                                            <h5>Sonu Nigam</h5>
+                                            <span class="mail-desc">I've sung a song! See you at</span>
+                                            <span class="time">9:10 AM</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0);">
+                                        <div class="user-img">
+                                            <img src="~/plugins/images/users/3.jpg" alt="user" class="img-circle"><span class="profile-status away pull-right"></span>
+                                        </div>
+                                        <div class="mail-contnet">
+                                            <h5>Arijit Sinh</h5>
+                                            <span class="mail-desc">I am a singer!</span>
+                                            <span class="time">9:08 AM</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0);">
+                                        <div class="user-img">
+                                            <img src="~/plugins/images/users/4.jpg" alt="user" class="img-circle">
+                                            <span class="profile-status offline pull-right"></span>
+                                        </div>
+                                        <div class="mail-contnet">
+                                            <h5>Pavan kumar</h5>
+                                            <span class="mail-desc">Just see the my admin!</span>
+                                            <span class="time">9:02 AM</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="text-center" href="javascript:void(0);">
+                                    <strong>See all notifications</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- ===== Top-Navigation-End ===== -->
+        <!-- ===== Left-Sidebar ===== -->
+        <aside class="sidebar">
+            <div class="scroll-sidebar">
+                <div class="user-profile">
+                    <div class="dropdown user-pro-body">
+                        <div class="profile-image">
+                            <img src="~/plugins/images/users/hanna.jpg" alt="user-img" class="img-circle">
+                            <a href="javascript:void(0);" class="dropdown-toggle u-dropdown text-blue" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="badge badge-danger">
+                                    <i class="fa fa-angle-down"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated flipInY">
+                                <li><a href="javascript:void(0);"><i class="fa fa-user"></i> Profile</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href=""><i class="fa fa-power-off"></i> Cerrar Sesiòn</a></li>
+                            </ul>
+                        </div>
+                        <p class="profile-text m-t-15 font-16"><a href="javascript:void(0);"> Hanna Gover</a></p>
+                    </div>
+                </div>
+                <nav class="sidebar-nav">
+                    <ul id="side-menu">
+                        <li>
+                            <a class="waves-effect" href="Myaccount.html" aria-expanded="false">
+                                <i class=" icon-user-following fa-fw"></i> <span class="hide-menu">
+                                    Mi Cuenta 2
+                                </span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="waves-effect" href="Laboratorio.html" aria-expanded="false">
+                                <i class=" icon-chemistry  fa-fw"></i> <span class="hide-menu"> Laboratorio </span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="waves-effect" href="javascript:void(0);" aria-expanded="false"><i class=" icon-tag fa-fw"></i> <span class="hide-menu"> Productos </span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li> <a href="inventario.html">Inventario</a> </li>
+                                <li> <a href="minventario.html">Movimiento Inventario</a> </li>
+                                <li> <a href="almacen.html">Almacen</a> </li>
+                                <li> <a href="proveedores.html">Proveedores</a> </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="waves-effect" href="tareas.html" aria-expanded="false">
+                                <i class="  icon-note fa-fw"></i> <span class="hide-menu">
+                                    Gestiond de Tareas
+                                </span>
+                            </a>
+
+                        </li>
+
+                        <li>
+                            <a class="waves-effect" href="info.html" aria-expanded="false">
+                                <i class=" icon-info fa-fw"></i> <span class="hide-menu"> Informacion </span>
+                            </a>
+
+                        </li>
+
+                        <li>
+                            <a class="waves-effect" href="javascript:void(0);" aria-expanded="false">
+                                <i class=" icon-support fa-fw"></i>
+                                <span class="hide-menu">Administración Odontogest</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li> <a href="logincliente.html">Clientes</a> </li>
+                                <li> <a href="pclientes.html">Planes</a> </li>
+                                <li> <a href="indicarservicio.html">Servicios</a> </li>
+                                <li> <a href="logincliente.html">Cuidades</a> </li>
+                                <li> <a href="pclientes.html">Provincias</a> </li>
+                                <li> <a href="indicarservicio.html">Daños</a> </li>
+                                <li> <a href="indicarservicio.html">Dientes</a> </li>
+                                <li> <a href="indicarservicio.html">Categoria de Servicios</a> </li>
+                                <li> <a href="indicarservicio.html">Aseguradoras</a> </li>
+                                <li> <a href="indicarservicio.html">Backup</a> </li>
+                            </ul>
+
+                        <li>
+                        <li>
+                            <a class="waves-effect" href="javascript:void(0);" aria-expanded="false">
+                                <i class="  icon-pie-chart fa-fw"></i>
+                                <span class="hide-menu">Reportes Odontogest</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li> <a href="logincliente.html">Reporte de Clientes</a> </li>
+                                <li> <a href="pclientes.html">Reporte de Pagos</a> </li>
+                                <li> <a href="indicarservicio.html">Cuenta por cobrar</a> </li>
+                                <li> <a href="logincliente.html">Reporte de Cumpleaños</a> </li>
+                                <li> <a href="pclientes.html">Reporte de Planes</a> </li>
+                                <li> <a href="indicarservicio.html">Estado de cuenta</a> </li>
+                                <li> <a href="indicarservicio.html">Facturas con comprobantes</a> </li>
+                            </ul>
+
+                        <li>
+
+
+            </div>
+        </aside>
+        <!-- ===== Left-Sidebar-End ===== -->
+        <!-- ===== Page-Content ===== -->
+        <div class="page-wrapper">
+            <!-- ===== Page-Container ===== -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h3 class="box-title m-b-0">Almacen</h3>
+                        <p class="text-muted m-b-30">Consulta de Inventario de Almacenes</p>
+                    </div>
+                    <div class="col-sm-6 t-a-r">
+                        <a class="btn btn-info m-t-10" asp-action="CreateStore">Nuevo Almacen</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.NameStore)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Location)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.QuantityArticles)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.NewArticles)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.State)
+                                            </th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        *@foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.NameStore)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Location)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.QuantityArticles)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.NewArticles)
+                                                </td>
+                                                <td>
+                                                    <span class="label label-success font-weight-100">@Html.DisplayFor(modelItem => item.State)</span>
+                                                </td>
+                                                <td>
+
+                                                    <a class="btn btn-outline-warning" asp-action="CreateStore" asp-route-idstore="@item.IdStore"><i class="icon-share-alt"></i></a> |
+                                                    @*<a asp-action="Details" asp-route-id="@item.IdStore">Details</a> |*@
+                                                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.IdStore" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-times"></i></a>
+                                                    @*<form method="post">
+                                                <button asp-page-handler="Delete" asp-route-id="@item.IdStore" class="btn btn-outline-danger"
+                                                        onclick="return confirm('Esta seguro que desea Eliminar este Registro?')">
+                                                    <i class="fa fa-times"></i>
+                                                </button>
+                                            </form>*@
+
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ===== Right-Sidebar-End ===== -->
+                
+        <!-- ===== Page-Content-End ===== -->
+    </div>
+    <!-- ===== Main-Wrapper-End ===== -->
+    <!-- ==============================
+        Required JS Files
+    =============================== -->
+    <!-- ===== jQuery ===== -->
+    <script src="~/plugins/components/jquery/dist/jquery.min.js"></script>
+    <!-- ===== Bootstrap JavaScript ===== -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- ===== Slimscroll JavaScript ===== -->
+    <script src="~/js/jquery.slimscroll.js"></script>
+    <!-- ===== Wave Effects JavaScript ===== -->
+    <script src="~/js/waves.js"></script>
+    <!-- ===== Menu Plugin JavaScript ===== -->
+    <script src="~/js/sidebarmenu.js"></script>
+    <!-- ===== Custom JavaScript ===== -->
+    <script src="~/js/custom.js"></script>
+    <script src="~/plugins/components/datatables/jquery.dataTables.min.js"></script>
+    <!-- start - This is for export functionality only -->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+
+    <!-- end - This is for export functionality only -->
+    <!-- ===== Plugin JS ===== -->
+    <script src="~/plugins/components/chartist-js/dist/chartist.min.js"></script>
+    <script src="~/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="~/plugins/components/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/plugins/components/sparkline/jquery.charts-sparkline.js"></script>
+    <script src="~/plugins/components/knob/jquery.knob.js"></script>
+    <script src="~/plugins/components/easypiechart/dist/jquery.easypiechart.min.js"></script>
+    <script src="~/js/db1.js"></script>
+    <script src="~/plugins/components/dropify/dist/js/dropify.min.js"></script>
+    <!-- ===== Style Switcher JS ===== -->
+    <script src="~/plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
+
+    <script>
+        $(function () {
+            $('#myTable').DataTable();
+
+            var table = $('#example').DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 2
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "displayLength": 25,
+                "drawCallback": function (settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(2, {
+                        page: 'current'
+                    }).data().each(function (group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+            });
+
+            // Basic
+            $('.dropify').dropify();
+            // Translated
+            $('.dropify-es').dropify({
+                messages: {
+                    default: 'Arrastra y suelta un archivo aquí o haz clic',
+                    replace: 'Arrastre y suelte un archivo o haga clic para reemplazar',
+                    remove: 'Eliminar',
+                    error: 'Lo sentimos, el archivo es demasiado grande'
+                }
+            });
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+            drEvent.on('dropify.beforeClear', function (event, element) {
+                return confirm("Realmente desea eliminar la imagen \"" + element.file.name + "\" ?");
+            });
+            drEvent.on('dropify.afterClear', function (event, element) {
+                alert('Imagen eliminada');
+            });
+            drEvent.on('dropify.errors', function (event, element) {
+                console.log('Has Errors');
+            });
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function (e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+@*<p class="text-right">
+            <a  class="btn btn-primary" asp-action="CreateStore">Create New</a>
+        </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameStore)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Location)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.QuantityArticles)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NewArticles)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.State)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameStore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Location)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuantityArticles)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NewArticles)
+                    </td>
+                    <td>
+                        <span class="label label-success font-weight-100">@Html.DisplayFor(modelItem => item.State)</span>
+                    </td>
+                    <td>
+
+                        <a class="btn btn-outline-warning" asp-action="CreateStore" asp-route-idstore="@item.IdStore"><i class="icon-share-alt"></i></a> |
+                        <a asp-action="Details" asp-route-id="@item.IdStore">Details</a> |
+            <a class="btn btn-outline-danger" asp-action="Delete" asp-all-route-id="@item.IdStore"><i class="fa fa-times"></i></a>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>*@

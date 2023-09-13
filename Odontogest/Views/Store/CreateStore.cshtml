@@ -1,0 +1,58 @@
+﻿@model Odontogest.Models.Store
+
+@{
+    ViewData["Title"] = "Create Store";
+}
+
+<h1> @ViewBag.PageName</h1>
+
+<h4>Store</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateStore">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @if (@ViewBag.isEdit)
+            {
+                <input type="hidden" asp-for="IdStore" />
+            }
+            <div class="form-group">
+                <label asp-for="NameStore" class="control-label"></label>
+                <input asp-for="NameStore" class="form-control" />
+                <span asp-validation-for="NameStore" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuantityArticles" class="control-label"></label>
+                <input asp-for="QuantityArticles" class="form-control" />
+                <span asp-validation-for="QuantityArticles" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NewArticles" class="control-label"></label>
+                <input asp-for="NewArticles" class="form-control" />
+                <span asp-validation-for="NewArticles" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="State" class="control-label"></label>
+                <input asp-for="State" class="form-control" />
+                <span asp-validation-for="State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a class="btn-btn-primary" asp-action="ListStores">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

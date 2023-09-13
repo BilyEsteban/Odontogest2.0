@@ -1,0 +1,119 @@
+﻿@model Odontogest.Models.Inventory
+
+@{
+    ViewData["Title"] = "Create";    
+}
+ 
+    <div class="container-fluid">
+        <div class="row">            
+            <div class="col-sm-6 t-a-r">
+                <a class="btn btn-info text-lg-right m-t-10" asp-action="ListInventory">Regresar</a>
+            </div>
+        </div>
+        <!-- sample modal content -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="">
+                    <div class="" aria-expanded="true">
+                        <div class="">
+                            <form asp-action="AddorEdit" enctype="multipart/form-data" >
+                                <div class="form-body">
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Nombre del producto</label>
+                                                <input type="text" asp-for="NameInventory" class="form-control">
+                                                <span class="text-danger" asp-validation-for="NameInventory"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="control-label">Categoría</label>
+                                                <select asp-for="FkCategory" class="form-control"
+                                                        asp-items="ViewBag.IdCategory">
+                                                    <option value="">--- Select Category ---</option>
+                                                </select>                                               
+                                                <span class="text-danger" asp-validation-for="FkCategory"></span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">Store</label>
+                                                <select asp-for="FkStore" class="form-control"
+                                                        asp-items="ViewBag.IdStore">
+                                                    <option value="">--- Select Store ---</option>
+                                                </select>
+                                                <span class="text-danger" asp-validation-for="FkStore"></span>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Preci</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon"><i class="ti-money"></i></div>
+                                                    <input type="text" class="form-control" asp-for="Price" placeholder="153">
+                                                    <span class="text-danger" asp-validation-for="Price"></span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Quantity</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-addon"><i class="ti-cut"></i></div>
+                                                    <input type="text" class="form-control" asp-for="Quantity" placeholder="36%">
+                                                    <span class="text-danger" asp-validation-for="Quantity"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <h3 class="box-title m-t-40">Descripción del Producto</h3>
+                                    <div class="row">
+                                        <div class="col-md-12 ">
+                                            <div class="form-group">
+                                                <textarea class="form-control" asp-for="Description" rows="4"></textarea>
+                                                @*<span class="text-danger" asp-validation-for="Description"></span>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h3 class="box-title m-t-20">Imagen</h3>
+                                            <div class="product-img">
+                                                <img src="">
+                                                <div class="fileupload btn btn-info waves-effect waves-light">
+                                                    <span>
+                                                        <i class="ion-upload m-r-5"></i>Subir otra imagen
+                                                    </span>
+                                                    <input type="file" asp-for="Image"  name="upload">
+                                                    @*<span class="text-danger" asp-validation-for="Image"></span>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions text-lg-right">
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fa fa-check"></i>
+                                            Guardar
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }

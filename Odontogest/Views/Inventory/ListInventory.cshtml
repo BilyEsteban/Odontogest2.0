@@ -1,0 +1,644 @@
+﻿@model IEnumerable<Odontogest.Models.Inventory>
+
+@{
+    ViewData["Title"] = "List Inventory";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/plugins/images/favicon.png">
+    <title>GestShop</title>
+    <!-- ===== Bootstrap CSS ===== -->
+    <link href="/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- ===== Plugin CSS ===== -->
+    <link href="~/plugins/components/chartist-js/dist/chartist.min.css" rel="stylesheet">
+    <link href="~/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css" rel="stylesheet">
+    <link href="~/less/responsive.less" rel="stylesheet" />
+    <link href="~/plugins/components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/plugins/components/dropify/dist/css/dropify.min.css">
+    <!-- ===== Animation CSS ===== -->
+    <link href="/css/animate.css" rel="stylesheet">
+    <!-- ===== Custom CSS ===== -->
+    <link href="/css/style.css" rel="stylesheet">
+    <!-- ===== Color CSS ===== -->
+    <link href="/css/colors/blue.css" id="theme" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="mini-sidebar">
+    <!-- ===== Main-Wrapper ===== -->
+    <div id="wrapper">
+        <div class="preloader">
+            <div class="cssload-speeding-wheel"></div>
+        </div>
+        <!-- ===== Top-Navigation ===== -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <a class="navbar-toggle font-20 hidden-sm hidden-md hidden-lg " href="#" data-toggle="collapse" data-target=".navbar-collapse">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="top-left-part">
+                    <a class="logo" href="index.html">
+                        <b>
+                            <img src="~/plugins/images/logo.png" alt="home" />
+                        </b>
+                        <span>
+                            <img src="~/plugins/images/logo-text.png" alt="homepage" class="dark-logo" />
+                        </span>
+                    </a>
+                </div>
+                <ul class="nav navbar-top-links navbar-left hidden-xs">
+                    <li>
+                        <a href="#" class="sidebartoggler font-20 waves-effect waves-light"><i class="icon-arrow-left-circle"></i></a>
+                    </li>
+                    <li>
+                        <form role="search" class="app-search hidden-xs">
+                            <i class="icon-magnifier"></i>
+                            <input type="text" placeholder="Buscar..." class="form-control">
+                        </form>
+                    </li>
+                </ul>
+                <ul class="nav navbar-top-links navbar-right pull-right">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle waves-effect waves-light font-20" data-toggle="dropdown" href="#">
+                            <i class="icon-speech"></i>
+                            <span class="badge badge-xs badge-danger">6</span>
+                        </a>
+                        <ul class="dropdown-menu mailbox animated bounceInDown">
+                            <li>
+                                <div class="drop-title">Tienes 4 mensajes nuevos</div>
+                            </li>
+                            <li>
+                                <div class="message-center">
+                                    <a href="#">
+                                        <div class="user-img">
+                                            <img src="../plugins/images/users/1.jpg" alt="user" class="img-circle">
+                                            <span class="profile-status online pull-right"></span>
+                                        </div>
+                                        <div class="mail-contnet">
+                                            <h5>Pavan kumar</h5>
+                                            <span class="mail-desc">Just see the my admin!</span>
+                                            <span class="time">9:30 AM</span>
+                                        </div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="user-img">
+                                            <img src="../plugins/images/users/2.jpg" alt="user" class="img-circle">
+                                            <span class="profile-status busy pull-right"></span>
+                                        </div>
+                                        <div class="mail-contnet">
+                                            <h5>Sonu Nigam</h5>
+                                            <span class="mail-desc">I've sung a song! See you at</span>
+                                            <span class="time">9:10 AM</span>
+                                        </div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="user-img">
+                                            <img src="~/plugins/images/users/3.jpg" alt="user" class="img-circle"><span class="profile-status away pull-right"></span>
+                                        </div>
+                                        <div class="mail-contnet">
+                                            <h5>Arijit Sinh</h5>
+                                            <span class="mail-desc">I am a singer!</span>
+                                            <span class="time">9:08 AM</span>
+                                        </div>
+                                    </a>
+                                    <a href="#">
+                                        <div class="user-img">
+                                            <img src="../plugins/images/users/4.jpg" alt="user" class="img-circle">
+                                            <span class="profile-status offline pull-right"></span>
+                                        </div>
+                                        <div class="mail-contnet">
+                                            <h5>Pavan kumar</h5>
+                                            <span class="mail-desc">Just see the my admin!</span>
+                                            <span class="time">9:02 AM</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="text-center" href="#">
+                                    <strong>See all notifications</strong>
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- ===== Top-Navigation-End ===== -->
+        <!-- ===== Left-Sidebar ===== -->
+        <aside class="sidebar">
+            <div class="scroll-sidebar">
+                <div class="user-profile">
+                    <div class="dropdown user-pro-body">
+                        <div class="profile-image">
+                            <img src="../plugins/images/users/hanna.jpg" alt="user-img" class="img-circle">
+                            <a href="#" class="dropdown-toggle u-dropdown text-blue" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="badge badge-danger">
+                                    <i class="fa fa-angle-down"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated flipInY">
+                                <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href=""><i class="fa fa-power-off"></i> Cerrar Sesiòn</a></li>
+                            </ul>
+                        </div>
+                        <p class="profile-text m-t-15 font-16"><a href="#"> Hanna Gover</a></p>
+                    </div>
+                </div>
+                <nav class="sidebar-nav">
+                    <ul id="side-menu">
+                        <li>
+                            <a class="waves-effect" href="Myaccount.html" aria-expanded="false">
+                                <i class=" icon-user-following fa-fw"></i> <span class="hide-menu">
+                                    Mi Cuenta
+                                </span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="waves-effect" href="Laboratorio.html" aria-expanded="false">
+                                <i class=" icon-chemistry  fa-fw"></i> <span class="hide-menu"> Laboratorio </span>
+                            </a>
+
+                        </li>
+                        <li>
+                            <a class="waves-effect" href="#" aria-expanded="false"><i class=" icon-tag fa-fw"></i> <span class="hide-menu"> Productos </span></a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li> <a href="inventario.html">Inventario</a> </li>
+                                <li> <a href="minventario.html">Movimiento Inventario</a> </li>
+                                <li> <a href="almacen.html">Almacen</a> </li>
+                                <li> <a href="proveedores.html">Proveedores</a> </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="waves-effect" href="tareas.html" aria-expanded="false">
+                                <i class="  icon-note fa-fw"></i> <span class="hide-menu">
+                                    Gestiond de Tareas
+                                </span>
+                            </a>
+
+                        </li>
+
+                        <li>
+                            <a class="waves-effect" href="info.html" aria-expanded="false">
+                                <i class=" icon-info fa-fw"></i> <span class="hide-menu"> Informacion </span>
+                            </a>
+
+                        </li>
+
+                        <li>
+                            <a class="waves-effect" href="#" aria-expanded="false">
+                                <i class=" icon-support fa-fw"></i>
+                                <span class="hide-menu">Administración Odontogest</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li> <a href="logincliente.html">Clientes</a> </li>
+                                <li> <a href="pclientes.html">Planes</a> </li>
+                                <li> <a href="indicarservicio.html">Servicios</a> </li>
+                                <li> <a href="logincliente.html">Cuidades</a> </li>
+                                <li> <a href="pclientes.html">Provincias</a> </li>
+                                <li> <a href="indicarservicio.html">Daños</a> </li>
+                                <li> <a href="indicarservicio.html">Dientes</a> </li>
+                                <li> <a href="indicarservicio.html">Categoria de Servicios</a> </li>
+                                <li> <a href="indicarservicio.html">Aseguradoras</a> </li>
+                                <li> <a href="indicarservicio.html">Backup</a> </li>
+                            </ul>
+
+                        <li>
+                        <li>
+                            <a class="waves-effect" href="#" aria-expanded="false">
+                                <i class="  icon-pie-chart fa-fw"></i>
+                                <span class="hide-menu">Reportes Odontogest</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse">
+                                <li> <a href="logincliente.html">Reporte de Clientes</a> </li>
+                                <li> <a href="pclientes.html">Reporte de Pagos</a> </li>
+                                <li> <a href="indicarservicio.html">Cuenta por cobrar</a> </li>
+                                <li> <a href="logincliente.html">Reporte de Cumpleaños</a> </li>
+                                <li> <a href="pclientes.html">Reporte de Planes</a> </li>
+                                <li> <a href="indicarservicio.html">Estado de cuenta</a> </li>
+                                <li> <a href="indicarservicio.html">Facturas con comprobantes</a> </li>
+                            </ul>
+
+                        <li>
+                            
+                    </ul>
+                </nav>
+
+
+            </div>
+        </aside>
+        <!-- ===== Left-Sidebar-End ===== -->
+        <!-- ===== Page-Content ===== -->
+        <div class="page-wrapper">
+            <!-- ===== Page-Container ===== -->
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="col-sm-6">
+                        <h3 class="box-title m-b-0">Inventario</h3>
+                        <p class="text-muted m-b-30">Consulta de Inventario de Productos</p>
+                    </div>
+                    <div class="col-sm-6 t-a-r">
+                        <a class="btn btn-info m-t-10" asp-action="AddorEdit">Nuevo Producto</a>
+                        <a class="btn btn-primary m-t-10" asp-action="AddorEdit">Aumentar Inventario</a>
+                        <a class="btn btn-success m-t-10" href="Producto-nuevo.html">Descargar Inventario</a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="white-box ecom-stat-widget">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <span class="text-blue font-light">5390 <i class=" icon-handbag text-primary"></i></span>
+                                    <p class="font-16">Articulos en Inventario</p>
+                                </div>
+                                <div class="col-xs-6">
+                                    <span class="icoleaf bg-primary text-white"><i class="mdi mdi-checkbox-marked-circle-outline"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="white-box ecom-stat-widget">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <span class="text-blue font-light">687 <i class="icon-arrow-down-circle text-warning"></i></span>
+                                    <p class="font-16">Articulos Bajo Stock</p>
+                                </div>
+                                <div class="col-xs-6">
+                                    <span class="icoleaf bg-warning text-white"><i class="icon-arrow-down-circle"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="white-box ecom-stat-widget">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <span class="text-blue font-light">&#36;2,947 <i class="mdi mdi-coin text-success"></i></span>
+                                    <p class="font-16">Valor en Inventario</p>
+                                </div>
+                                <div class="col-xs-6">
+                                    <span class="icoleaf bg-danger text-white"><i class="mdi mdi-coin"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="white-box">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Image)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.NameInventory)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Price)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Quantity)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Description)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.FkCategoryNavigation)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.FkStoreNavigation)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.State)
+                                            </th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <img src="~/Images/Inventory/@item.Image" alt="@item.NameInventory" width="100" />
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.NameInventory)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Price)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Quantity)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Description)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.FkCategoryNavigation.NameCategory)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.FkStoreNavigation)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.State)
+                                                    @*<a asp-action="AddorEdit" asp-route-id="@item.IdInventory">Edit</a> |
+                                                    <a asp-action="AddorEdit" asp-route-iDelete="@item.IdInventory">Delete</a>*@
+                                                <td>
+                                                    <a asp-action="AddorEdit" asp-route-id="@item.IdInventory" class="btn btn-success btn-outline" data-toggle="tooltip" title="Descargar Articulo"><i class="icon-arrow-down-circle" ti-marker-alt"></i></a>
+                                                    <a href="#" class="btn btn-warning btn-outline" title="Transferir" data-toggle="tooltip"><i class="icon-share-alt "></i></a>
+                                                    @*<a href="#" class="btn btn-danger btn-outline" title="Eliminar" data-toggle="tooltip"><i class="fa fa-times"></i></a>*@
+                                                    <form method="post" >
+                                                        <button asp-action="Delete" asp-route-id="@item.IdInventory" class="btn btn-danger btn-outline" title="Eliminar" data-toggle="tooltip"
+                                                                onclick="return confirm('Esta seguro que desea Eliminar este Registro?')">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+
+                                @*<table class="table product-overview" id="myTable">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+
+                    <th>Categoria</th>
+                    <th>Costo</th>
+                    <th>Disponibles</th>
+                    <th>Entrantes</th>
+                    <th>Estado</th>
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <img src="../plugins/images/chair.jpg" alt="iMac" width="80"> </td>
+                    <td>Coronas de Metal</td>
+
+                    <td>Muebles</td>
+                    <td>$12.000</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td> <span class="label label-success font-weight-100">Disponible</span> </td>
+                    <td><a href="detallecompra.html" class="btn btn-success btn-outline" data-toggle="tooltip" title="Descargar Articulo"><i class="icon-arrow-down-circle" ti-marker-alt"></i></a> <a href="#" class="btn btn-warning btn-outline" title="Transferir" data-toggle="tooltip"><i class="icon-share-alt "></i></a></a> <a href="#" class="btn btn-danger btn-outline" title="Eliminar" data-toggle="tooltip"><i class="fa fa-times"></i></a></td>
+
+                </tr>
+                <tr>
+                    <td> <img src="../plugins/images/chair2.jpg" alt="iPhone" width="80"> </td>
+                    <td>Coronas de Porcelana</td>
+
+                    <td>Muebles</td>
+                    <td>$9.000</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td> <span class="label label-warning font-weight-100">Bajo Stock</span> </td>
+                    <td><a href="detallecompra.html" class="btn btn-success btn-outline" data-toggle="tooltip" title="Descargar Articulo"><i class="icon-arrow-down-circle" ti-marker-alt"></i></a> <a href="#" class="btn btn-warning btn-outline" title="Transferir" data-toggle="tooltip"><i class="icon-share-alt "></i></a></a> <a href="#" class="btn btn-danger btn-outline" title="Eliminar" data-toggle="tooltip"><i class="fa fa-times"></i></a></td>
+
+
+                </tr>
+                <tr>
+                    <td> <img src="../plugins/images/chair3.jpg" alt="apple_watch" width="80"> </td>
+                    <td>Coronas de zirconia</td>
+
+                    <td>Muebles</td>
+                    <td>$8.900</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td> <span class="label label-success font-weight-100">Disponible</span> </td>
+                    <td><a href="detallecompra.html" class="btn btn-success btn-outline" data-toggle="tooltip" title="Descargar Articulo"><i class="icon-arrow-down-circle" ti-marker-alt"></i></a> <a href="#" class="btn btn-warning btn-outline" title="Transferir" data-toggle="tooltip"><i class="icon-share-alt "></i></a></a> <a href="#" class="btn btn-danger btn-outline" title="Eliminar" data-toggle="tooltip"><i class="fa fa-times"></i></a></td>
+
+
+                </tr>
+                <tr>
+                    <td> <img src="../plugins/images/chair4.jpg" alt="mac_mouse" width="80"> </td>
+                    <td>Silla de madera pura</td>
+
+                    <td>Muebles</td>
+                    <td>$9.900</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td> <span class="label label-danger font-weight-100">No Disponible</span> </td>
+                    <td><a href="detallecompra.html" class="btn btn-success btn-outline" data-toggle="tooltip" title="Descargar Articulo"><i class="icon-arrow-down-circle" ti-marker-alt"></i></a> <a href="#" class="btn btn-warning btn-outline" title="Transferir" data-toggle="tooltip"><i class="icon-share-alt "></i></a></a> <a href="#" class="btn btn-danger btn-outline" title="Eliminar" data-toggle="tooltip"><i class="fa fa-times"></i></a></td>
+
+                </tr>
+
+            </tbody>
+        </table>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ===== Right-Sidebar-End ===== -->
+            </div>
+            <!-- ===== Page-Container-End ===== -->
+            <footer class="footer t-a-c">
+                Copyrigth © 2021 GestShop by Point ITS.
+            </footer>
+        </div>
+        <!-- ===== Page-Content-End ===== -->
+    </div>
+    <!-- ===== Main-Wrapper-End ===== -->
+    <!-- ==============================
+        Required JS Files
+    =============================== -->
+    <!-- ===== jQuery ===== -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- ===== Bootstrap JavaScript ===== -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- ===== Slimscroll JavaScript ===== -->
+    <script src="~/js/jquery.slimscroll.js"></script>
+    <!-- ===== Wave Effects JavaScript ===== -->
+    <script src="~/js/waves.js"></script>
+    <!-- ===== Menu Plugin JavaScript ===== -->
+    <script src="~/js/sidebarmenu.js"></script>
+    <!-- ===== Custom JavaScript ===== -->
+    <script src="~/js/custom.js"></script>
+    <script src="~/plugins/components/datatables/jquery.dataTables.min.js"></script>
+    <!-- start - This is for export functionality only -->
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+    <script src="https://cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"></script>
+
+    <!-- end - This is for export functionality only -->
+    <!-- ===== Plugin JS ===== -->
+    <script src="~/plugins/components/chartist-js/dist/chartist.min.js"></script>
+    <script src="~/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+    <script src="~/plugins/components/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/plugins/components/sparkline/jquery.charts-sparkline.js"></script>
+    <script src="~/plugins/components/knob/jquery.knob.js"></script>
+    <script src="~/plugins/components/easypiechart/dist/jquery.easypiechart.min.js"></script>
+    <script src="~/js//db1.js"></script>
+    <script src="~/plugins/components/dropify/dist/js/dropify.min.js"></script>
+    <!-- ===== Style Switcher JS ===== -->
+    <script src="~/plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
+
+    <script>
+        $(function () {
+            $('#myTable').DataTable();
+
+            var table = $('#example').DataTable({
+                "columnDefs": [{
+                    "visible": false,
+                    "targets": 2
+                }],
+                "order": [
+                    [2, 'asc']
+                ],
+                "displayLength": 25,
+                "drawCallback": function (settings) {
+                    var api = this.api();
+                    var rows = api.rows({
+                        page: 'current'
+                    }).nodes();
+                    var last = null;
+                    api.column(2, {
+                        page: 'current'
+                    }).data().each(function (group, i) {
+                        if (last !== group) {
+                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
+                            last = group;
+                        }
+                    });
+                }
+            });
+
+            // Basic
+            $('.dropify').dropify();
+            // Translated
+            $('.dropify-es').dropify({
+                messages: {
+                    default: 'Arrastra y suelta un archivo aquí o haz clic',
+                    replace: 'Arrastre y suelte un archivo o haga clic para reemplazar',
+                    remove: 'Eliminar',
+                    error: 'Lo sentimos, el archivo es demasiado grande'
+                }
+            });
+            // Used events
+            var drEvent = $('#input-file-events').dropify();
+            drEvent.on('dropify.beforeClear', function (event, element) {
+                return confirm("Realmente desea eliminar la imagen \"" + element.file.name + "\" ?");
+            });
+            drEvent.on('dropify.afterClear', function (event, element) {
+                alert('Imagen eliminada');
+            });
+            drEvent.on('dropify.errors', function (event, element) {
+                console.log('Has Errors');
+            });
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function (e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+@*<p class="text-right">
+        <a class="btn btn-primary" asp-action="AddorEdit">Create new Product</a>
+    </p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NameInventory)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FkCategory)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FkStore)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img src="~/Images/Inventory/@item.Image" alt="@item.NameInventory" width="100"/>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NameInventory)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FkCategoryNavigation.NameCategory)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FkStoreNavigation.NameStore)
+                    </td>
+                    <td>
+                        <a asp-action="AddorEdit" asp-route-id="@item.IdInventory">Edit</a> |
+                        <a asp-action="AddorEdit" asp-route-iDelete="@item.IdInventory">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@

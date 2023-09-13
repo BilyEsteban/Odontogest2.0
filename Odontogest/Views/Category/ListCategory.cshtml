@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Odontogest.Models.Category>
+
+@{
+    ViewData["Title"] = "List Category";
+}
+
+<h2>List of Categoris</h2>
+
+<a class="btn btn-primary" asp-action="CreateCategory"> Add Category</a>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameCategory)
+            </th>
+            <th>
+                @Html.DisplayName("Action")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelitem => item.NameCategory)
+                </td>
+                <td>
+                    <a asp-action="CreateCategory" class="btn btn-warning btn-sm" asp-route-id="@item.IdCategory">Edit</a>
+                    <a asp-action="Delete" class="btn btn-warning btn-sm" asp-route-id="@item.IdCategory">Delete</a>
+                </td>
+            </tr>                
+        }
+            
+    </tbody>
+</table>
+
