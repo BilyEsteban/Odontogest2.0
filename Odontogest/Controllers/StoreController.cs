@@ -23,24 +23,34 @@ namespace Odontogest.Controllers
 
         
         // GET: Store
-        public ActionResult ListStores()
+        public ActionResult ListStores(string search)
         {
-           var stores = _context.Stores
-                .Include(c=> c.Inventories)
-                .AsNoTracking()
-                .ToList();
+            //var stores = _context.Stores
+            //     .Include(c=> c.Inventories)
+            //     .AsNoTracking()
+            //     .ToList();
+
+            var stores = from s in _context.Stores
+                         select s;
+
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                stores = stores.Where(s => s.NameStore.Contains(search));
+            }
+
             return View(stores);
         }
 
-        // GET: Store/Details/5
+  
+              // GET: Store/Details/5
         public ActionResult Details(int id)
         {
             var detail = _context.Stores.FirstOrDefault(d => d.IdStore == id);
 
             return View(detail);
         }
-
-        // GET: Store/CreateStore
+// GET: Store/CreateStore
         public ActionResult CreateStore(int? idstore)
         {
             ViewBag.PageName = idstore == null ? "Create New Store" : "Edit Store";
@@ -59,7 +69,7 @@ namespace Odontogest.Controllers
                     NotFound();
                 }
 
-                return View(storelist);
+                return PartialView("_EditOrCreate",storelist);
             }
         }
 
@@ -122,12 +132,17 @@ namespace Odontogest.Controllers
         public ActionResult Delete(int? id)
         {
             var storea =  _context.Stores
-                .OrderBy(e=>e.NameStore)
-                .Include(d=> d.Inventories)
-                .First();
-            
+                .Include(e=>e.Inventories)
+                .Single(i=>i.IdStore == id);
+
+            var inve = _context.Inventories
+                .Where(i => i.FkStore == id)
+                .ToList();
+            inve.ForEach(i => i.FkStore = null);
+
             _context.Stores.Remove(storea);
-             _context.SaveChanges();
+            //storea.Inventories.Clear();
+            _context.SaveChanges();
 
             return RedirectToAction(nameof(ListStores));
            

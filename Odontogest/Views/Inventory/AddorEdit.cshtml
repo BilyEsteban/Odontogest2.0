@@ -1,7 +1,8 @@
 ﻿@model Odontogest.Models.Inventory
 
 @{
-    ViewData["Title"] = "Create";    
+    ViewData["Title"] = "Create";
+    //var path = "~/Images/Inventory/";
 }
  
     <div class="container-fluid">
@@ -88,12 +89,19 @@
                                         <div class="col-md-12">
                                             <h3 class="box-title m-t-20">Imagen</h3>
                                             <div class="product-img">
-                                                <img src="">
+                                                @if (@ViewBag.isExit)
+                                                {
+                                                    <img src="~/Images/Inventory/@Model.Image" alt="@Model.NameInventory" width="100" />
+                                                }
+                                                else
+                                                {
+                                                    <img src="~/Images/Inventory/avatar.png" alt="AVATAR" width="100" />
+                                                }
                                                 <div class="fileupload btn btn-info waves-effect waves-light">
                                                     <span>
                                                         <i class="ion-upload m-r-5"></i>Subir otra imagen
                                                     </span>
-                                                    <input type="file" asp-for="Image"  name="upload">
+                                                    <input type="file" asp-for="Image" name="upload">
                                                     @*<span class="text-danger" asp-validation-for="Image"></span>*@
                                                 </div>
                                             </div>

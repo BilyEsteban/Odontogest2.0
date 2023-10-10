@@ -311,7 +311,7 @@
                     <div class="col-sm-12">
                         <div class="white-box">
                             <div class="table-responsive">
-                                <table class="table">
+                                <table id="myTable" class="table">
                                     <thead>
                                         <tr>
                                             <th>
@@ -330,10 +330,10 @@
                                                 @Html.DisplayNameFor(model => model.Description)
                                             </th>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.FkCategoryNavigation)
+                                                @Html.DisplayNameFor(model => model.FkCategory)
                                             </th>
                                             <th>
-                                                @Html.DisplayNameFor(model => model.FkStoreNavigation)
+                                                @Html.DisplayNameFor(model => model.FkStore)
                                             </th>
                                             <th>
                                                 @Html.DisplayNameFor(model => model.State)
@@ -364,7 +364,7 @@
                                                     @Html.DisplayFor(modelItem => item.FkCategoryNavigation.NameCategory)
                                                 </td>
                                                 <td>
-                                                    @Html.DisplayFor(modelItem => item.FkStoreNavigation)
+                                                    @Html.DisplayFor(modelItem => item.FkStoreNavigation.NameStore)
                                                 </td>
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.State)

@@ -260,9 +260,16 @@
 
                 <div class="row">
                     <div class="col-sm-12">
+                        <form>
+                            <div class="group">
+                                <label class="form-group">Filtro</label>
+                                <input class="form-group-sm" name="search" />
+                                <input type="submit" class="btn btn-success" />
+                            </div>
+                        </form>
                         <div class="white-box">
                             <div class="table-responsive">
-                                <table class="table">
+                                <table id="myTable" class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>
@@ -284,8 +291,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        *@foreach (var item in Model)
-                                        {
+                                        @foreach (var item in Model)
+                                         {
                                             <tr>
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.NameStore)
@@ -300,11 +307,12 @@
                                                     @Html.DisplayFor(modelItem => item.NewArticles)
                                                 </td>
                                                 <td>
-                                                    <span class="label label-success font-weight-100">@Html.DisplayFor(modelItem => item.State)</span>
+                                                   @Html.DisplayFor(modelItem => item.State)
                                                 </td>
                                                 <td>
 
-                                                    <a class="btn btn-outline-warning" asp-action="CreateStore" asp-route-idstore="@item.IdStore"><i class="icon-share-alt"></i></a> |
+                                                    <button class="btn btn-outline-warning" data-toggle="modal" data-target="@("#EditOrCreate"+item.IdStore)" asp-action="CreateStore" asp-route-idstore="@item.IdStore" ><i class="icon-share-alt"></i></button> |
+                                                    @await Html.PartialAsync("_EditOrCreatePartialView", item) 
                                                     @*<a asp-action="Details" asp-route-id="@item.IdStore">Details</a> |*@
                                                     <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.IdStore" onclick="return confirm('Are you sure to delete this record?')"><i class="fa fa-times"></i></a>
                                                     @*<form method="post">
@@ -316,7 +324,7 @@
 
                                                 </td>
                                             </tr>
-                                        }
+                                         }
                                     </tbody>
                                 </table>
                             </div>

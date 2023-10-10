@@ -1,0 +1,66 @@
+@model Store
+
+
+<div class="modal" tabindex="-1" role="dialog" id="EditOrCreate-@Model.IdStore" aria-labelledby="EditOrCreate" aria-hidden="true" style="display:true;">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <form asp-action="CreateStore">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            
+                            <input type="hidden" asp-for="IdStore" />
+            
+                            <div class="form-group">
+                                <label asp-for="NameStore" class="control-label"></label>
+                                <input asp-for="NameStore" class="form-control" />
+                                <span asp-validation-for="NameStore" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Location" class="control-label"></label>
+                                <input asp-for="Location" class="form-control" />
+                                <span asp-validation-for="Location" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="QuantityArticles" class="control-label"></label>
+                                <input asp-for="QuantityArticles" class="form-control" />
+                                <span asp-validation-for="QuantityArticles" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="NewArticles" class="control-label"></label>
+                                <input asp-for="NewArticles" class="form-control" />
+                                <span asp-validation-for="NewArticles" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="State" class="control-label"></label>
+                                <input asp-for="State" class="form-control" />
+                                <span asp-validation-for="State" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div>
+    <a class="btn-btn-primary" asp-action="ListStores">Back to List</a>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
